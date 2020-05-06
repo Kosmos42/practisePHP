@@ -18,7 +18,7 @@
         </tr>
         <?php foreach ($jokes as $joke) : ?>
         <tr>
-            <td><?php htmlout($joke['text']); ?>
+            <td><?= markdown2html($joke['text']); ?>
             </td>
             <td>
                 <form action="?" method="post">
