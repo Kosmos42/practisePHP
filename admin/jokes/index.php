@@ -1,7 +1,7 @@
 <?php
 
 // Выводим форму поиска.
-include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/php-pratice/includes/db.inc.php';
 
 if (isset($_GET['add'])) {
     $pageTitle = 'Новая шутка';
@@ -11,7 +11,7 @@ if (isset($_GET['add'])) {
     $id = '';
     $button = 'Добавить шутку';
 
-    include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/php-pratice/includes/db.inc.php';
     // Формируем список авторов.
 
     try {
@@ -49,7 +49,7 @@ if (isset($_GET['add'])) {
 }
 
 if (isset($_GET['addform'])) {
-    include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/php-pratice/includes/db.inc.php';
 
     if ($_POST['author'] == '') {
         $error = 'Вы должные выбрать автора для этой шутки.
@@ -99,7 +99,7 @@ if (isset($_GET['addform'])) {
 }
 
 if (isset($_POST['action']) and $_POST['action'] == 'Редактировать') {
-    include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/php-pratice/includes/db.inc.php';
 
     try {
         $sql = 'SELECT id, joketext, authorid
@@ -179,7 +179,7 @@ if (isset($_POST['action']) and $_POST['action'] == 'Редактировать'
 }
 
 if (isset($_GET['editform'])) {
-    include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/php-pratice/includes/db.inc.php';
 
     if ($_POST['author'] == '') {
         $error = 'Вы должные выбрать автора для этой шутки.
@@ -239,7 +239,7 @@ if (isset($_GET['editform'])) {
 }
 
 if (isset($_POST['action']) and $_POST['action'] == 'Удалить') {
-    include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/php-pratice/includes/db.inc.php';
 
     //Удаляем записи о категориях для этой шутки.
     try {
@@ -271,7 +271,7 @@ if (isset($_POST['action']) and $_POST['action'] == 'Удалить') {
 
 
 if (isset($_GET['action']) and $_GET['action'] == 'search') {
-    include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/php-pratice/includes/db.inc.php';
 
     // Базовое выражение SELECT
     $select = 'SELECT id, joketext';
@@ -312,7 +312,7 @@ if (isset($_GET['action']) and $_GET['action'] == 'search') {
 
     foreach ($s as $row) {
         $jokes[] = array('id' => $row['id'],
-                         'text' => $row['joketext']);
+                        'text' => $row['joketext']);
     }
 
     include 'jokes.html.php';
@@ -320,6 +320,7 @@ if (isset($_GET['action']) and $_GET['action'] == 'search') {
 }
 
 try {
+    print_r($_SERVER['DOCUMENT_ROOT']);
     $result = $pdo->query('SELECT id, name FROM author');
 } catch (PDOException $e) {
     $error = 'Ошибка при извлечении записей об авторах!';

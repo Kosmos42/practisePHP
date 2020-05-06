@@ -1,6 +1,6 @@
 <?php
 
-include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/php-practice/includes/db.inc.php';
 
 if (isset($_GET['add'])) {
     $pageTitle = 'Новый Автор';
@@ -16,7 +16,7 @@ if (isset($_GET['add'])) {
 
 if (isset($_GET['addform'])) {
     include $_SERVER['DOCUMENT_ROOT'] .
-        '/includes/db.inc.php';
+        '/php-practice/includes/db.inc.php';
 
     try {
         $sql = 'INSERT INTO author SET
@@ -38,7 +38,7 @@ if (isset($_GET['addform'])) {
 
 if (isset($_POST['action']) and $_POST['action'] == 'Редактировать') {
     include $_SERVER['DOCUMENT_ROOT'] .
-        '/includes/db.inc.php';
+        '/php-practice/includes/db.inc.php';
     try {
         $sql = 'SELECT id, name, email FROM author WHERE id = :id';
         $s = $pdo->prepare($sql);
@@ -64,7 +64,7 @@ if (isset($_POST['action']) and $_POST['action'] == 'Редактировать'
 
 if (isset($_GET['editform'])) {
     include $_SERVER['DOCUMENT_ROOT'] .
-        'includes/db.inc.php';
+        '/php-practice/includes/db.inc.php';
     try {
         $sql = 'UPDATE author SET
                 name = :name,
@@ -86,9 +86,10 @@ if (isset($_GET['editform'])) {
 }
 
 try {
+    include $_SERVER['DOCUMENT_ROOT'] . '/incudes/db.inc.php';
     $result = $pdo->query('SELECT id, name FROM author');
 } catch (PDOException $e) {
-    $error = 'Ошибка при извлечении авторов из базы данных!';
+    $error = 'Ошибка при извлечении авторов из базы данных!' . $e;
     include 'error.html.php';
     exit();
 }
@@ -99,7 +100,7 @@ foreach ($result as $row) {
 
 if (isset($_POST['action']) and $_POST['action'] == 'Удалить') {
     if (isset($_POST['confirm']) and $_POST['confirm'] == 'Подтверждаю') {
-        include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
+        include $_SERVER['DOCUMENT_ROOT'] . '/php-practice/includes/db.inc.php';
         //Получаем шутки, принадлежащие автору.
         $authorId = $_POST['id'];
         echo "authorID: " . $_POST['id'];
@@ -159,7 +160,7 @@ if (isset($_POST['action']) and $_POST['action'] == 'Удалить') {
         header('Location: .');
         exit();
     } else {
-        include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
+        include $_SERVER['DOCUMENT_ROOT'] . '/php-practice/includes/db.inc.php';
 
         try {
             $sql = 'SELECT id, name FROM author WHERE id = :id';

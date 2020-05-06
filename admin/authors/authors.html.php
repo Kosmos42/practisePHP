@@ -1,5 +1,5 @@
 <?php include_once $_SERVER['DOCUMENT_ROOT'] .
-    '/includes/helpers.inc.php'; ?>
+    '/php-pratice/includes/helpers.inc.php'; ?>
 <!DOCTYPE html>
 
 <head>
@@ -11,7 +11,7 @@
 <body>
     <h1>Управление авторами</h1>
     <p><a href="?add">Добавить нового автора</a></p>
-    <p><a href="./categories">Управление списком категорий</a></p>
+    <p><a href="../categories">Управление списком категорий</a></p>
     <ul>
         <?php foreach ($authors as $author) : ?>
         <li>
@@ -19,8 +19,7 @@
                 <div>
                     <?php htmlout($author['name']); ?>
                     <input type="hidden" name="id"
-                        value="<?php
-                                                                echo $author['id']; ?>">
+                        value="<?= $author['id']; ?>">
                     <input type="submit" value="Редактировать" name="action">
                     <input type="submit" name="action" value="Удалить">
                 </div>

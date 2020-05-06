@@ -1,5 +1,5 @@
 <?php include_once $_SERVER['DOCUMENT_ROOT'] .
-    '/includes/helpers.inc.php'; ?>
+    '/php-pratice/includes/helpers.inc.php'; ?>
 
 <!DOCTYPE html>
 
@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <p>Удаляем авторов с ид <?php htmlout($authorId); ?> </p>
+    <p>Удаляем авторов с ид <?php htmlout($authorId); ?>
+    </p>
 </body>
 
 </html>
