@@ -14,6 +14,7 @@ if (isset($_GET['add'])) {
     exit();
 }
 
+// Обработка формы для добавление еще одного автора
 if (isset($_GET['addform'])) {
     include $_SERVER['DOCUMENT_ROOT'] .
         '/php-practice/includes/db.inc.php';
@@ -85,18 +86,6 @@ if (isset($_GET['editform'])) {
     exit();
 }
 
-try {
-    include $_SERVER['DOCUMENT_ROOT'] . '/incudes/db.inc.php';
-    $result = $pdo->query('SELECT id, name FROM author');
-} catch (PDOException $e) {
-    $error = 'Ошибка при извлечении авторов из базы данных!' . $e;
-    include 'error.html.php';
-    exit();
-}
-
-foreach ($result as $row) {
-    $authors[] = array('id' => $row['id'], 'name' => $row['name']);
-}
 
 if (isset($_POST['action']) and $_POST['action'] == 'Удалить') {
     if (isset($_POST['confirm']) and $_POST['confirm'] == 'Подтверждаю') {
@@ -180,6 +169,19 @@ if (isset($_POST['action']) and $_POST['action'] == 'Удалить') {
         include "confirm.html.php";
         exit();
     }
+}
+
+try {
+    $result = $pdo->query('SELECT id, name FROM author');
+    $result = $result->fetchAll();
+} catch (PDOException $e) {
+    $error = 'Ошибка при извлечении авторов из базы данных!' . $e;
+    include 'error.html.php';
+    exit();
+}
+
+foreach ($result as $row) {
+    $authors[] = array('id' => $row['id'], 'name' => $row['name']);
 }
 
 include 'authors.html.php';

@@ -1,5 +1,5 @@
 <?php include_once $_SERVER['DOCUMENT_ROOT'] .
-    '/php-pratice/includes/helpers.inc.php'; ?>
+    '/php-practice/includes/helpers.inc.php'; ?>
 <!DOCTYPE html>
 
 <head>
@@ -17,7 +17,7 @@
         <li>
             <form action="" method="POST">
                 <div>
-                    <?php htmlout($author['name']); ?>
+                    <?= html($author['name']); ?>
                     <input type="hidden" name="id"
                         value="<?= $author['id']; ?>">
                     <input type="submit" value="Редактировать" name="action">

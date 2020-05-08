@@ -1,6 +1,6 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] .
-    '/php-pratice/includes/magicquotes.inc.php';
+    '/php-practice/includes/magicquotes.inc.php';
 
 if (isset($_GET['add'])) {
     $pageTitle = 'Новая категория';
@@ -14,7 +14,7 @@ if (isset($_GET['add'])) {
 }
 
 if (isset($_GET['addform'])) {
-    include $_SERVER['DOCUMENT_ROOT'] . '/php-pratice/includes/db.inc.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/php-practice/includes/db.inc.php';
 
     try {
         $sql = 'INSERT INTO category SET
@@ -33,7 +33,7 @@ if (isset($_GET['addform'])) {
 }
 
 if (isset($_POST['action']) and $_POST['action'] == 'Редактировать') {
-    include $_SERVER['DOCUMENT_ROOT'] . '/php-pratice/includes/db.inc.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/php-practice/includes/db.inc.php';
 
     try {
         $sql = 'SELECT id, name FROM category WHERE id = :id';
@@ -61,7 +61,7 @@ if (isset($_POST['action']) and $_POST['action'] == 'Редактировать'
 }
 
 if (isset($_GET['editform'])) {
-    include $_SERVER['DOCUMENT_ROOT'] . '/php-pratice/includes/db.inc.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/php-practice/includes/db.inc.php';
 
     try {
         $sql = 'UPDATE category SET
@@ -85,7 +85,7 @@ if (isset($_GET['editform'])) {
 
 if (isset($_POST['action']) and $_POST['action'] == 'Удалить') {
     include $_SERVER['DOCUMENT_ROOT'] .
-        '/php-pratice/includes/db.inc.php';
+        '/php-practice/includes/db.inc.php';
 
     $categoryId = $_POST['id'];
 
@@ -102,7 +102,7 @@ if (isset($_POST['action']) and $_POST['action'] == 'Удалить') {
     }
 
     include $_SERVER['DOCUMENT_ROOT'] .
-        '/php-pratice/includes/db.inc.php';
+        '/php-practice/includes/db.inc.php';
 
     // Удаляем категорию.
     try {
@@ -122,7 +122,7 @@ if (isset($_POST['action']) and $_POST['action'] == 'Удалить') {
 }
 
 //Выводим список категорий
-include $_SERVER['DOCUMENT_ROOT'] . '/php-pratice/includes/db.inc.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/php-practice/includes/db.inc.php';
 
 try {
     $result = $pdo->query('SELECT id, name FROM category');

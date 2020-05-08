@@ -1,5 +1,5 @@
 <?php include_once $_SERVER['DOCUMENT_ROOT'] .
-'/php-pratice/includes/helpers.inc.php'; ?>
+'/php-practice/includes/helpers.inc.php'; ?>
 <!DOCTYPE html>
 
 <head>
@@ -19,8 +19,8 @@
                 <option value="">Любой автор</option>
                 <?php foreach ($authors as $author) : ?>
                 <option
-                    value="<?php htmlout($author['id']); ?>">
-                    <?php htmlout($author['name']); ?>
+                    value="<?= html($author['id']); ?>">
+                    <?= html($author['name']); ?>
                 </option>
                 <?php endforeach; ?>
             </select>
@@ -32,8 +32,8 @@
                 <option value="">Любая категория</option>
                 <?php foreach ($categories as $category) : ?>
                 <option
-                    value="<?php htmlout($category['id']); ?>">
-                    <?php htmlout($category['name']); ?>
+                    value="<?= html($category['id']); ?>">
+                    <?= html($category['name']); ?>
                 </option>
                 <?php endforeach; ?>
             </select>

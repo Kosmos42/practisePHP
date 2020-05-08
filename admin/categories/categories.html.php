@@ -1,5 +1,5 @@
 <?php include_once $_SERVER['DOCUMENT_ROOT'] .
-    '/php-pratice/includes/helpers.inc.php'; ?>
+    '/php-practice/includes/helpers.inc.php'; ?>
 <!DOCTYPE html>
 
 <head>
@@ -15,7 +15,7 @@
         <li>
             <form action="" method="post">
                 <div>
-                    <?php htmlout($category['name']); ?>
+                    <?= html($category['name']); ?>
                     <input type="hidden" name="id"
                         value="
                             <?php echo $category['id']; ?>">

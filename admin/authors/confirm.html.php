@@ -1,5 +1,5 @@
 <?php include_once $_SERVER['DOCUMENT_ROOT'] .
-    '/php-pratice/includes/helpers.inc.php'; ?>
+    '/php-practice/includes/helpers.inc.php'; ?>
 <!DOCTYPE html>
 
 <head>
@@ -8,11 +8,11 @@
 </head>
 
 <body>
-    <p>Вы уверены что хотите удалить автора <?php htmlout($author['name']); ?>
+    <p>Вы уверены что хотите удалить автора <?= html($author['name']); ?>
     </p>
     <form action="" method="post">
         <input type="hidden" name="id"
-            value="<?php htmlout($author['id']); ?>">
+            value="<?= html($author['id']); ?>">
         <input type="hidden" name="action" value="Удалить">
         <input type="submit" name="confirm" value="Подтверждаю">
         <input type="submit" name="confirm" value="Отказываюсь">

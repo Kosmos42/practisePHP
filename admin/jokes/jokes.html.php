@@ -1,5 +1,5 @@
 <?php include_once $_SERVER['DOCUMENT_ROOT'] .
-'/php-pratice/includes/helpers.inc.php'; ?>
+'/php-practice/includes/helpers.inc.php'; ?>
 
 <!DOCTYPE html>
 
@@ -25,7 +25,7 @@
                     <div>
                         <input type="hidden" name="id"
                             value="
-                                <?php htmlout($joke['id']); ?>">
+                                <?= html($joke['id']); ?>">
                         <input type="submit" name="action" value="Редактировать">
                         <input type="submit" name="action" value="Удалить">
                     </div>

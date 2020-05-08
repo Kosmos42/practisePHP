@@ -1,25 +1,24 @@
 <?php include_once $_SERVER['DOCUMENT_ROOT'] .
-    '/php-pratice/includes/helpers.inc.php'; ?>
+    '/php-practice/includes/helpers.inc.php'; ?>
 <!DOCTYPE html>
 
 <head>
     <meta charset="utf-8">
-    <title><?php htmlout($pageTitle); ?></title>
+    <title><?= html($pageTitle); ?></title>
 </head>
 
 <body>
-    <h1><?php htmlout($pageTitle); ?></h1>
-    <form action="?<?php htmlout($action); ?>" method="post">
+    <h1><?= html($pageTitle); ?></h1>
+    <form action="?<?= html($action); ?>" method="post">
         <div>
-            <label for="name">Имя: <input type="text" name="name" id="name" value="<?php htmlout($name); ?>"></label>
+            <label for="name">Имя: <input type="text" name="name" id="name" value="<?= html($name); ?>"></label>
         </div>
         <div>
-            <label for="email">Электронная почта: <input type="text" name="email" id="email" value="<?php htmlout($email); ?>"></label>
+            <label for="email">Электронная почта: <input type="text" name="email" id="email" value="<?= html($email); ?>"></label>
         </div>
         <div>
-            <input type="hidden" name="id" value="<?php
-                                                    htmlout($id); ?>">
-            <input type="submit" value="<?php htmlout($button); ?>">
+            <input type="hidden" name="id" value="<?= html($id); ?>">
+            <input type="submit" value="<?= html($button); ?>">
         </div>
     </form>
 </body>
